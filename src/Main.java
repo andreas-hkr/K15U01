@@ -8,8 +8,42 @@ public class Main {
         //  - alla klöver
         //  - alla klädda kort
 
+        Deck d1 = new Deck();
+        for (int i=0; i < 13; i++) {
+            Card c = new Card();
+            c.suit = Card.CLUBS;
+            c.rank = (i+1);
+            d1.cards[i] = c;
+            d1.count++;
+        }
+
+//        for (int i=0; i < d1.count; i++) {
+//            System.out.println(d1.cards[i]);
+//        }
+
+        Deck d2 = new Deck();
+        int pos = 0;
+        for (int suit=0; suit < 4; suit++) {
+            for (int rank=11; rank <= 13; rank++) {
+                Card c = new Card();
+                c.suit = suit;
+                c.rank = rank;
+                d2.cards[pos] = c;
+                d2.count++;
+                pos++;
+            }
+        }
+
+        for (int i=0; i < d2.count; i++) {
+            System.out.println(d2.cards[i]);
+        }
 
     }
+}
+
+class Deck {
+    Card[] cards = new Card[52];
+    int count;
 }
 
 class Card {
